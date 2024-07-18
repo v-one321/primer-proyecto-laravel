@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\LibrosController;
+use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/**************************     LIBROS      ********************************** */
 Route::get('/libros', [LibrosController::class, 'index']);
 Route::get('/libros/nuevo', [LibrosController::class, 'create']);
 Route::post('/libros', [LibrosController::class, 'store']);
@@ -27,3 +29,19 @@ Route::get('/libros/eliminar/{id}', [LibrosController::class, 'destroy']);
 Route::delete('/libros/{id}', [LibrosController::class, 'destroy']);
 Route::get('/libros/{id}', [LibrosController::class, 'edit']);
 Route::put('/libros/{id}', [LibrosController::class, 'update']);
+/***************************    GENEROS     ************************************ */
+Route::get('/generos', [GeneroController::class, 'index']);
+Route::get('/generos/nuevo', [GeneroController::class, 'create']);
+Route::post('/generos', [GeneroController::class, 'store']);
+Route::delete('/generos/{id}', [GeneroController::class, 'destroy']);
+Route::get('/generos/{id}', [GeneroController::class, 'edit']);
+Route::put('/generos/{id}', [GeneroController::class, 'update']);
+/***************************    PELICULAS     ************************************ */
+Route::get('/peliculas', [PeliculaController::class, 'index']);
+Route::get('/peliculas/nuevo', [PeliculaController::class, 'create']);
+Route::post('/peliculas', [PeliculaController::class, 'store']);
+Route::delete('/peliculas/{id}', [PeliculaController::class, 'destroy']);
+Route::get('/peliculas/{id}', [PeliculaController::class, 'edit']);
+Route::put('/peliculas/{id}', [PeliculaController::class, 'update']);
+/************************       CARTELERA       ************************************ */
+Route::get('/cartelera', [PeliculaController::class, 'show']);
