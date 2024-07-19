@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\LibrosController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,3 +47,17 @@ Route::get('/peliculas/{id}', [PeliculaController::class, 'edit']);
 Route::put('/peliculas/{id}', [PeliculaController::class, 'update']);
 /************************       CARTELERA       ************************************ */
 Route::get('/cartelera', [PeliculaController::class, 'show']);
+/***************************    Clientes     ************************************ */
+Route::get('/clientes', [ClienteController::class, 'index']);
+Route::get('/clientes/nuevo', [ClienteController::class, 'create']);
+Route::post('/clientes', [ClienteController::class, 'store']);
+Route::delete('/clientes/{id}', [ClienteController::class, 'destroy']);
+Route::get('/clientes/{id}', [ClienteController::class, 'edit']);
+Route::put('/clientes/{id}', [ClienteController::class, 'update']);
+/***************************    PEDIDO     ************************************ */
+Route::get('/pedidos', [PedidoController::class, 'index']);
+Route::get('/pedidos/nuevo', [PedidoController::class, 'create']);
+Route::post('/pedidos', [PedidoController::class, 'store']);
+Route::delete('/pedidos/{id}', [PedidoController::class, 'destroy']);
+Route::get('/pedidos/{id}', [PedidoController::class, 'edit']);
+Route::put('/pedidos/{id}', [PedidoController::class, 'update']);
