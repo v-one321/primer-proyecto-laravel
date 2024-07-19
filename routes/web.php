@@ -61,3 +61,7 @@ Route::post('/pedidos', [PedidoController::class, 'store']);
 Route::delete('/pedidos/{id}', [PedidoController::class, 'destroy']);
 Route::get('/pedidos/{id}', [PedidoController::class, 'edit']);
 Route::put('/pedidos/{id}', [PedidoController::class, 'update']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

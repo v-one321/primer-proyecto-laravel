@@ -41,6 +41,25 @@
                         <a class="nav-link" href="{{ url('/pedidos') }}">Pedidos</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg"
+                                width="40px" height="40px" class="rounded-circle" alt=""></a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a href="ver-perfil.html" class="dropdown-item">Ver perfil</a>
+                            </li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Cerrar sesión</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
