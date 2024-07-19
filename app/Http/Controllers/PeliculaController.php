@@ -15,6 +15,7 @@ class PeliculaController extends Controller
     {
         $datos = Pelicula::paginate(10);
         return view('peliculas.PeliculasView', compact('datos'));
+        //return response()->json(["mensaje" => "Datos cargados", "datos" => $datos],200);
     }
 
     /**
@@ -35,7 +36,7 @@ class PeliculaController extends Controller
             "nombre" => "required|max:100",
             "genero_id" => "required",
             "portada" => "url",
-            "calificacion" => "integer",            
+            "calificacion" => "integer",
         ]);
         $item = new Pelicula();
         $item->nombre = $request->nombre;
